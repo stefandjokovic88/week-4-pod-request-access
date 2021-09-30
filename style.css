@@ -23,45 +23,50 @@
     --normal-font-size-mobile: 15px;
     --normal-line-height-mobile: 25px;
     --font-color-white-opacity: rgba(255, 255, 255, 0.5);
+    --bgd-with-opacity-mobile: rgba(18, 23, 37, 0.9);
 }
 
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh;
     font-family: var(--font-family);
     background-color: var(--font-and-bgd-color-black);
     font-weight: var(--normal-font-weight);
-    overflow: hidden;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 p {
     margin: 0;
 }
 
-.container {
-    position: relative;
-    height: 70%;
-    margin: 130px 0 130px 165px;
+.main {
+    /* height: 100%; */
     background-image: url(assets/desktop/image-host.jpg);
     background-repeat: no-repeat;
     background-position: right 0 top 0;
-    background-size: 70% 99.9%;
+    /* background-size: 70% 99.8%; */
+    background-size: auto 99.8%;
+    margin: 130px 0 130px 165px;
+    width: 100%;
+}
+
+.container {
+    position: relative;
 }
 
 .logo {
-    position: absolute;
     transform: translate(0, -50%);
 }
 
 .content {
-    position: absolute;
     background-color: var(--font-and-bgd-color-black);
-    margin-top: 261px;
-    margin-right: 552px;
-    left: 0;
-    bottom: 0;
     padding: 88px 58px 0 0;
+    max-width: 665px;
 }
 
 .capture {
@@ -78,13 +83,15 @@ p {
 
 .text {
     color: var(--font-color-gray);
+    font-size: var(--normal-font-size);
+    line-height: var(--small-line-height);
     margin-bottom: 40px;
-    margin-right: 220px;
+    max-width: 445px;
+    /* width: 100%; */
 }
 
 .form {
     margin-bottom: 64px;
-    max-height: 56px;
 }
 
 .email {
@@ -129,6 +136,11 @@ button:hover {
     cursor: pointer;
 }
 
+footer {
+    max-width: 665px;
+    width: 100%;
+}
+
 .spotify {
     margin-right: 40px;
 }
@@ -158,42 +170,53 @@ button:hover {
     margin-top: 10px;
 }
 
-
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
-
-    .content {
-        margin-top: 0;
-        margin-right: 300px;
-        left: 0;
-        bottom: 0;
-        padding: 30px 0 0 0;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     
-    body {
-        overflow: scroll;
-    }
-
-    .container {
-        min-height: 80vh;
-        margin: 0px 0px 257px 39px;
-        background-image: url(assets/tablet/image-host.jpg);
-        background-repeat: no-repeat;
-        background-position: right 0 top 0;
-        background-size: 64% 99.9%;
+    .content {
+        max-width: 565px;
+        padding: 68px 0 0 0;
     }
 
     .logo {
-        position: absolute;
         transform: translate(0, 0);
+    }
+
+}
+
+
+@media screen and (max-width: 992px) {
+    
+    body, html {
+        display: flex;
+        justify-content: right;
+        align-items: flex-start;
+        overflow: scroll;
+    }
+
+    .main {
+        /* min-height: 100vh; */
+        margin: 0 0 0 39px;
+        background-image: url(assets/tablet/image-host.jpg);
+        background-repeat: no-repeat;
+        /* background-position: right 0 top 0; */
+        background-size: auto 99.8%;
+        /* margin: 0px 0px 257px 39px; */
+        /* width: 100%; */
+    }
+
+    .container {
+        margin: 0;
+    }
+
+    .logo {
         margin-top: 50px;
     }
 
     .content {
-        padding: 93px 0 0 0;
+        width: 82%;
+        padding: 93px 30px 0 0;
         margin: 0;
+        margin-top: 25%;
     }
 
     .capture {
@@ -210,7 +233,7 @@ button:hover {
 
     .dots {
         left: 0;
-        bottom: -19%;
+        bottom: -22%;
         margin-left: -9px;
     }
 
@@ -219,13 +242,10 @@ button:hover {
 @media screen and (max-width: 767px) {
 
      body {
-        background-image: url(assets/mobile/image-host.jpg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
         overflow: scroll;
      }
 
-     body::before{
+     /* body::before{
         content: "";
         background-color: var(--font-and-bgd-color-black);
         position: absolute;
@@ -234,32 +254,43 @@ button:hover {
         right: 0;
         bottom: 0;
         opacity: 0.9;
+    } */
+
+    .main {
+        background-image: url(assets/mobile/image-host.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin: 0;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center; */
     }
+
     .container {
-        max-height: 100vh;
-        margin: 62px 24px 94px 24px;
-        background-image: var(--font-and-bgd-color-black);
+        width: 100%;
+        min-height: 100vh;
+        background: var(--bgd-with-opacity-mobile);
         display: flex;
+        flex-direction: column;
         justify-content: center;
     }
 
     .logo {
-        margin-top: 0;
+        margin: 62px auto 0 auto;
     }
 
     .content {
-        position: relative;
         background: none;
-        margin-top: 113px;
-        margin-right: 0;
         padding: 0;
+        padding: 57px 24px 94px 24px;
         text-align: center;
+        margin: 0 auto;
     }
 
     .capture {
-        margin-bottom: 16px;
         font-size: var(--big-font-size-mobile);
         line-height: var(--big-line-height-mobile);
+        margin: 0 auto 16px auto;
     }
 
     .text {
@@ -270,7 +301,8 @@ button:hover {
 
     .footer-mobile {
         display: block;
-        margin-bottom: 48px;
+        width: 100%;
+        margin: 0 auto 48px auto;
     }    
 
     .footer-mobile img {
@@ -296,18 +328,22 @@ button:hover {
     }
 
     .form {
-        max-width: 350px;
+        max-width: 500px;
+        width: 100%;
+        /* max-height: 200px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         margin: 0 auto;
     }
 
     button {
         margin-left: 0;
-        padding: 9px 109px 9px 109px;
     }
 
     .email {
+        padding: 9px 0 9px 32px;
         margin-bottom: 16px;
-        padding: 9px 200px 9px 32px;
     }
 
     /* :placeholder-shown {
